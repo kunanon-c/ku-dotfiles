@@ -1,4 +1,26 @@
-theme = IC_Orange_PPL
 window-theme = ghostty
 window-subtitle = working-directory
 shell-integration-features = no-title
+
+# color
+palette = 0=#24211e
+palette = 1=#ac987d
+palette = 2=#5f865f
+palette = 3=#77824a
+palette = 4=#b36b42
+palette = 5=#bb7844
+palette = 6=#c9a654
+palette = 7=#d7c484
+palette = 8=#675642
+palette = 9=#ac987d
+palette = 10=#5f865f
+palette = 11=#77824a
+palette = 12=#b36b42
+palette = 13=#bb7844
+palette = 14=#c9a654
+palette = 15=#d7c484
+background = #24211e
+foreground = #d7c484
+cursor-color = #d7c484
+selection-background = #44492b
+selection-foreground = #d7c484
