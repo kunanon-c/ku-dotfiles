@@ -1,0 +1,4 @@
+theme = IC_Orange_PPL
+window-theme = ghostty
+window-subtitle = working-directory
+shell-integration-features = no-title
