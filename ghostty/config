@@ -1,6 +1,7 @@
 window-theme = ghostty
 window-subtitle = working-directory
 shell-integration-features = no-title
+font-feature = -calt
 
 # color
 palette = 0=#24211e
