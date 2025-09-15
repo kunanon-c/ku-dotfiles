@@ -8,6 +8,10 @@ require('lazy').setup({
   require 'config.plugins.conform',
   require 'config.plugins.blink',
   require 'config.plugins.which-key',
+  --  require 'config.plugins.colorizer',
+  require 'config.plugins.todo-comment',
+  require 'config.plugins.lualine',
+  require 'config.plugins.treesitter',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
