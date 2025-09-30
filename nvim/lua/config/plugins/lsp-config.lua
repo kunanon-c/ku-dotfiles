@@ -140,6 +140,20 @@ return {
       local servers = {
         gopls = {},
 
+        pyright = {
+          settings = {
+            python = {
+              pythonPath = vim.fn.getcwd() .. '/.venv/bin/python',
+            },
+          },
+          before_init = function(_, config)
+            local venv = vim.fn.getcwd() .. '/.venv'
+            if vim.fn.isdirectory(venv) == 1 then
+              config.settings.python.pythonPath = venv .. '/bin/python'
+            end
+          end,
+        },
+
         lua_ls = {
           cmd = { 'lua-language-server' },
           -- filetypes = { ... },
@@ -162,7 +176,12 @@ return {
         -- Merge blink capabilities with any existing capabilities
         config.capabilities = vim.tbl_deep_extend('force', blink_capabilities, config.capabilities or {})
 
-        require('lspconfig')[server_name].setup(config)
+        vim.lsp.enable(server_name)
+
+        if config then
+          vim.lsp.config(server_name, config)
+        end
+        --  require('lspconfig')[server_name].setup(config)
       end
     end,
   },

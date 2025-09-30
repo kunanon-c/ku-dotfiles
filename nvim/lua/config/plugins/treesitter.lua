@@ -29,6 +29,11 @@ return {
           'function_declaration',
           'method_declaration',
         },
+        python = {
+          'class_definition',
+          'function_definition',
+          'method',
+        },
       },
       zindex = 20,
       mode = 'cursor',
