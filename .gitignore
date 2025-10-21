@@ -1,5 +1,7 @@
+
 *
 !.gitignore
 !/shell
 !/ghostty
 !/nvim
+!/nvim/**
