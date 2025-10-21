@@ -4,10 +4,12 @@ return {
     branch = 'master',
     lazy = false,
     build = ':TSUpdate',
+    main = 'nvim-treesitter.configs',
     opts = {
       highlight = {
-        enable = false,
+        enable = true,
         disable_spell_checking = true,
+        disable = { 'go' },
       },
     },
   },
@@ -18,23 +20,6 @@ return {
       enable = true,
       max_lines = 0,
       trim_scope = 'outer',
-      patterns = {
-        default = {
-          'class',
-          'function',
-          'method',
-        },
-        go = {
-          'func_literal',
-          'function_declaration',
-          'method_declaration',
-        },
-        python = {
-          'class_definition',
-          'function_definition',
-          'method',
-        },
-      },
       zindex = 20,
       mode = 'cursor',
       separator = nil,

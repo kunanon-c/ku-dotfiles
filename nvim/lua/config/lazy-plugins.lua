@@ -2,7 +2,8 @@ require('lazy').setup({
 
   'NMAC427/guess-indent.nvim',
   require 'config.plugins.lsp-config',
-  require 'config.plugins.darkearth',
+  require 'config.plugins.gruvbox',
+  -- require 'config.plugins.darkearth',
   require 'config.plugins.telescope',
   require 'config.plugins.gitsigns',
   require 'config.plugins.conform',
