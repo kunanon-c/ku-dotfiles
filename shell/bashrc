@@ -5,7 +5,30 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/dev/bin/luals/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 alias gitdff="git diff --shortstat"
 
-PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'; PS1='\u@\h \w ${PS1_CMD1}\n฿ '
+# Only run in interactive shells
+case $- in
+  *i*) ;;
+  *) return ;;
+esac
+
+PROMPT_COMMAND='PS1_CMD1=$(git branch --show-current 2>/dev/null)'
+PS1='\u@\h \w${PS1_CMD1:+ (${PS1_CMD1})}\n$ '
+
+set -o vi
+# Use Readline to show mode in the prompt and switch cursor shape
+# (Most xterm-compatible terminals support these; if not, you'll still see the labels.)
+bind 'set editing-mode vi'
+bind 'set keymap vi-insert'
+bind 'set show-mode-in-prompt on'
+bind 'set keyseq-timeout 16'
+# INSERT mode: blinking bar cursor (5), green [INSERT]
+bind 'set vi-ins-mode-string \1\e[5 q\e[1;32m\2[INSERT]\1\e[0m\2 '
+# NORMAL mode: steady block cursor (2), blue [NORMAL]
+bind 'set vi-cmd-mode-string \1\e[2 q\e[1;34m\2[NORMAL]\1\e[0m\2 '
+# Cursor codes reference (DECSCUSR):
+#   \e[1 q → blinking block | \e[2 q → steady block
+#   \e[5 q → blinking bar   | \e[6 q → steady bar

@@ -1,7 +1,14 @@
-
+# Ignore all files by default
 *
+
+# Keep directories visible so we can unignore their contents later
+!*/
+
 !.gitignore
-!/shell
-!/ghostty
-!/nvim
+
+# Unignore these directories (recursively)
+!/shell/**
+!/ghostty/**
+!/oxker/**
+!/slumber/**
 !/nvim/**
