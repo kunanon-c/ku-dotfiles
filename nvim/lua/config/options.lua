@@ -39,7 +39,7 @@ vim.o.smartcase = true
 vim.o.signcolumn = 'yes'
 
 -- Decrease update time
-vim.o.updatetime = 250
+vim.o.updatetime = 50
 
 -- Decrease mapped sequence wait time
 vim.o.timeoutlen = 300
@@ -73,11 +73,12 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- vim.o.autocomplete = true
+
+-- vim.o.pumborder = 'rounded'
+-- vim.o.pummaxwidth = 40
+-- vim.o.completeopt = 'menu,menuone,noselect'
+
 -- vim.o.spell = true
 -- vim.o.spelllang = 'en'
---
--- vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
---   callback = function()
--- vim.cmd 'syntax spell notoplevel'
---   end,
--- })
+

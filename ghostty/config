@@ -1,5 +1,0 @@
-theme = Gruvbox Dark
-window-theme = ghostty
-window-subtitle = working-directory
-shell-integration-features = no-title
-font-feature = -calt

@@ -1,0 +1,44 @@
+# .zshrc
+
+export GOPATH="$HOME/dev/bin/go"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
+export PATH="$HOME/dev/bin/luals/bin:$PATH"
+export PATH="$HOME/dev/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+alias gitdff="git diff --shortstat"
+
+# Only run in interactive shells
+case $- in
+  *i*) ;;
+  *) return ;;
+esac
+
+# Enable prompt substitution so variables/functions expand inside PROMPT
+setopt prompt_subst
+
+# Match your Bash Readline keyseq-timeout (16 ms)
+# In zsh, KEYTIMEOUT is in hundredths of a second.
+KEYTIMEOUT=1
+
+# Colors
+autoload -U colors && colors
+
+# Use vcs_info to get the current git branch efficiently
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git:*' formats '(%b)'
+zstyle ':vcs_info:git:*' actionformats '(%b|%a)'
+
+# Update vcs_info before each prompt
+precmd() { vcs_info }
+
+# Compose the prompt (first line with git branch, second line with $)
+# %n = user, %m = host, %~ = cwd, ${vcs_info_msg_0_} = " (branch)"
+PROMPT='%n@%m %~ ${vcs_info_msg_0_} 
+$ '

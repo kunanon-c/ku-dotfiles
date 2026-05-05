@@ -1,4 +1,5 @@
 require 'config.options'
 require 'config.keymaps'
-require 'config.lazy'
-require 'config.lazy-plugins'
+require 'config.lsp'
+require 'config.pack'
+require 'config.diagnostics'
